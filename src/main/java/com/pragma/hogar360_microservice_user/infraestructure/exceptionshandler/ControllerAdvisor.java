@@ -1,8 +1,11 @@
 package com.pragma.hogar360_microservice_user.infraestructure.exceptionshandler;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.pragma.hogar360_microservice_user.domain.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -117,5 +120,23 @@ public class ControllerAdvisor {
     @ExceptionHandler(UserPasswordCannotBeEmptyException.class)
     public ResponseEntity<ExceptionResponse> userPasswordCannotBeEmptyException(UserPasswordCannotBeEmptyException exception){
         return ResponseEntity.badRequest().body(new ExceptionResponse(PASSWORD_CANNOT_BE_EMPTY, LocalDateTime.now()));
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ExceptionResponse> handleForbidden() {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ExceptionResponse(NOT_PERMISSIONS_MESSAGE, LocalDateTime.now()));
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<ExceptionResponse> badCredentialsException(BadCredentialsException exception){
+        return ResponseEntity.badRequest().body(new ExceptionResponse(exception.getMessage(), LocalDateTime.now()));
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ExceptionResponse> userNotFoundException(UserNotFoundException exception){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                new ExceptionResponse(USER_NOT_FOUND_MESSAGE, LocalDateTime.now()
+                )
+        );
     }
 }

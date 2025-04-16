@@ -4,6 +4,7 @@ import com.pragma.hogar360_microservice_user.domain.model.UserModel;
 import com.pragma.hogar360_microservice_user.domain.ports.in.IAuthServicePort;
 import com.pragma.hogar360_microservice_user.domain.ports.out.IAuthPersistencePort;
 
+import static com.pragma.hogar360_microservice_user.domain.utils.validations.GlobalValidations.normalizeToUpper;
 import static com.pragma.hogar360_microservice_user.domain.utils.validations.UserValidations.validationByAuthAttributes;
 
 public class AuthUseCase implements IAuthServicePort {
@@ -17,6 +18,7 @@ public class AuthUseCase implements IAuthServicePort {
     @Override
     public String login(String email, String password) {
         validationByAuthAttributes(email, password);
+        email = normalizeToUpper(email);
 
         UserModel userModel = authPersistencePort.authenticate(email, password);
         return authPersistencePort.generateToken(userModel);

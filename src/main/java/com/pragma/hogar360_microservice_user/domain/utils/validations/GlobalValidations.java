@@ -1,7 +1,6 @@
 package com.pragma.hogar360_microservice_user.domain.utils.validations;
 
 import com.pragma.hogar360_microservice_user.domain.exceptions.*;
-import com.pragma.hogar360_microservice_user.domain.model.UserModel;
 
 import java.text.Normalizer;
 import java.time.LocalDate;
@@ -60,10 +59,6 @@ public class GlobalValidations {
     }
 
     public static String normalizeToUpper(String attribute) {
-        if (attribute == null) {
-            return null;
-        }
-
         String normalized = Normalizer.normalize(attribute, Normalizer.Form.NFD);
         normalized = normalized.replaceAll(VALIDATIONS_STR_REGEX, VALIDATIONS_STR_REGEX_TO_BLANK);
         return normalized.toUpperCase();

@@ -9,9 +9,9 @@ import com.pragma.hogar360_microservice_user.domain.ports.out.IUserPersistencePo
 import com.pragma.hogar360_microservice_user.domain.utils.constants.DomainConstants;
 import com.pragma.hogar360_microservice_user.domain.utils.validations.ValidationConstants;
 import com.pragma.hogar360_microservice_user.domain.utils.validations.GlobalValidations;
-import com.pragma.hogar360_microservice_user.utils.TestConstants;
-import com.pragma.hogar360_microservice_user.utils.TestDataRole;
-import com.pragma.hogar360_microservice_user.utils.TestDataUser;
+import com.pragma.hogar360_microservice_user.utils.constants.TestConstants;
+import com.pragma.hogar360_microservice_user.utils.testdata.TestDataRole;
+import com.pragma.hogar360_microservice_user.utils.testdata.TestDataUser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,10 +1,8 @@
 package com.pragma.hogar360_microservice_user.infraestructure.endpoints.rest;
 
 import com.pragma.hogar360_microservice_user.application.dtos.request.LoginRequest;
-import com.pragma.hogar360_microservice_user.application.dtos.request.UserRequest;
 import com.pragma.hogar360_microservice_user.application.dtos.response.LoginResponse;
-import com.pragma.hogar360_microservice_user.application.dtos.response.SaveUserResponse;
-import com.pragma.hogar360_microservice_user.application.services.IUserService;
+import com.pragma.hogar360_microservice_user.application.services.IAuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -25,13 +23,13 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Authentication", description = "API to authenticate users")
 public class AuthController {
 
-    private final IUserService userService;
+    private final IAuthService authService;
 
-    @Operation(summary = "Login", description = "User login")
+    @Operation(summary = "Log-in", description = "User log-in")
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Login Successfully",
+                    description = "Log-in Successfully",
                     content = {
                             @Content(
                                     mediaType = "application/json",
@@ -47,7 +45,7 @@ public class AuthController {
     })
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest){
-        return ResponseEntity.status(HttpStatus.OK).body(userService.saveSeller(userRequest));
+        return ResponseEntity.status(HttpStatus.OK).body(authService.login(loginRequest));
     }
 }
 

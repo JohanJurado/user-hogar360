@@ -1,4 +1,4 @@
-package com.pragma.hogar360_microservice_user.utils;
+package com.pragma.hogar360_microservice_user.utils.constants;
 
 public class TestConstants {
 

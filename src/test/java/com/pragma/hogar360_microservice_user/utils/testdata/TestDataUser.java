@@ -1,4 +1,4 @@
-package com.pragma.hogar360_microservice_user.utils;
+package com.pragma.hogar360_microservice_user.utils.testdata;
 
 import com.pragma.hogar360_microservice_user.domain.model.UserModel;
 

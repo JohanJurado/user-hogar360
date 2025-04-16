@@ -3,10 +3,12 @@ package com.pragma.hogar360_microservice_user.infraestructure.entities;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Entity
 @NoArgsConstructor
 @Table(name="role")
-public class RoleEntity {
+public class RoleEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

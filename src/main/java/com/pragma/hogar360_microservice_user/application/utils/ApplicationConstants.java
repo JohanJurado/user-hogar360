@@ -9,4 +9,5 @@ public class ApplicationConstants {
     }
 
     public static final String SAVE_SELLER_RESPONSE = "Seller saved successfully";
+    public static final String LOG_IN_AUTHENTICATE_RESPONSE = "The user has successfully logged in";
 }
