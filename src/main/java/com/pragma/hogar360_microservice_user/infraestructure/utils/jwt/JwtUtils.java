@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-import static com.pragma.hogar360_microservice_user.infraestructure.exceptionshandler.ExceptionConstants.*;
+import static com.pragma.hogar360_microservice_user.infraestructure.utils.constants.ExceptionConstants.*;
 import static com.pragma.hogar360_microservice_user.infraestructure.utils.constants.InfrastructureConstants.*;
 
 @Component

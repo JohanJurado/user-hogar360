@@ -1,4 +1,4 @@
-package com.pragma.hogar360_microservice_user.domain.utils.validations;
+package com.pragma.hogar360_microservice_user.domain.utils.constants;
 
 import static com.pragma.hogar360_microservice_user.domain.utils.constants.DomainConstants.UTILITY_CLASS_MESSAGE;
 

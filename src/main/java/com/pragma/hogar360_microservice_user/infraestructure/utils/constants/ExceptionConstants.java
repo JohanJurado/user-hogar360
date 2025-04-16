@@ -1,4 +1,4 @@
-package com.pragma.hogar360_microservice_user.infraestructure.exceptionshandler;
+package com.pragma.hogar360_microservice_user.infraestructure.utils.constants;
 
 import static com.pragma.hogar360_microservice_user.domain.utils.constants.DomainConstants.UTILITY_CLASS_MESSAGE;
 

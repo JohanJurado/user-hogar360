@@ -3,7 +3,6 @@ package com.pragma.hogar360_microservice_user.infraestructure.configurations.sec
 import com.auth0.jwt.exceptions.*;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.pragma.hogar360_microservice_user.domain.exceptions.UserNotFoundException;
-import com.pragma.hogar360_microservice_user.infraestructure.exceptionshandler.ExceptionResponse;
 import com.pragma.hogar360_microservice_user.infraestructure.repositories.mysql.IUserRepository;
 import com.pragma.hogar360_microservice_user.infraestructure.utils.jwt.JwtUtils;
 import jakarta.servlet.FilterChain;
@@ -13,7 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,10 +22,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.Collection;
 
-import static com.pragma.hogar360_microservice_user.infraestructure.exceptionshandler.ExceptionConstants.*;
+import static com.pragma.hogar360_microservice_user.infraestructure.utils.constants.ExceptionConstants.*;
 import static com.pragma.hogar360_microservice_user.infraestructure.utils.constants.InfrastructureConstants.*;
 
 @Component

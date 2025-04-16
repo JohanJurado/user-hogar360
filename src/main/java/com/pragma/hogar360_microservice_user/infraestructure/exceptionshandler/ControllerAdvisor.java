@@ -1,6 +1,5 @@
 package com.pragma.hogar360_microservice_user.infraestructure.exceptionshandler;
 
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.pragma.hogar360_microservice_user.domain.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.LocalDateTime;
 
-import static com.pragma.hogar360_microservice_user.infraestructure.exceptionshandler.ExceptionConstants.*;
+import static com.pragma.hogar360_microservice_user.infraestructure.utils.constants.ExceptionConstants.*;
 
 @ControllerAdvice
 public class ControllerAdvisor {

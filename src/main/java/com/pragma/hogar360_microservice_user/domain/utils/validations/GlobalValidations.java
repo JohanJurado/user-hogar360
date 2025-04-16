@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 import static com.pragma.hogar360_microservice_user.domain.utils.constants.DomainConstants.*;
-import static com.pragma.hogar360_microservice_user.domain.utils.validations.ValidationConstants.*;
+import static com.pragma.hogar360_microservice_user.domain.utils.constants.ValidationConstants.*;
 
 public class GlobalValidations {
 

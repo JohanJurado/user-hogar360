@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import static com.pragma.hogar360_microservice_user.infraestructure.exceptionshandler.ExceptionConstants.INCORRECT_PASSWORD_MESSAGE;
+import static com.pragma.hogar360_microservice_user.infraestructure.utils.constants.ExceptionConstants.INCORRECT_PASSWORD_MESSAGE;
 
 
 @Service

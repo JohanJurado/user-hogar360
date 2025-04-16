@@ -7,7 +7,7 @@ import com.pragma.hogar360_microservice_user.domain.ports.out.IEncryptPersistenc
 import com.pragma.hogar360_microservice_user.domain.ports.out.IRolePersistencePort;
 import com.pragma.hogar360_microservice_user.domain.ports.out.IUserPersistencePort;
 import com.pragma.hogar360_microservice_user.domain.utils.constants.DomainConstants;
-import com.pragma.hogar360_microservice_user.domain.utils.validations.ValidationConstants;
+import com.pragma.hogar360_microservice_user.domain.utils.constants.ValidationConstants;
 import com.pragma.hogar360_microservice_user.domain.utils.validations.GlobalValidations;
 import com.pragma.hogar360_microservice_user.utils.constants.TestConstants;
 import com.pragma.hogar360_microservice_user.utils.testdata.TestDataRole;
