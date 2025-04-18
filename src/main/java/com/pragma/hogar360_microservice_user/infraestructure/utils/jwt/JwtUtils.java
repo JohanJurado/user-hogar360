@@ -35,24 +35,26 @@ public class JwtUtils {
     }
 
     public DecodedJWT validateToken(String token){
+        DecodedJWT decodedJWT;
         try {
-            JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(privateKey))
-                    .withIssuer(userGenerator)
-                    .build();
-
-            return jwtVerifier.verify(token);
-        } catch (AlgorithmMismatchException ex) {
-            throw new JWTVerificationException(TOKEN_ALGORITHM_INVALID_MESSAGE);
-        } catch (SignatureVerificationException ex) {
-            throw new JWTVerificationException(TOKEN_SIGNATURE_INVALID_MESSAGE);
-        } catch (TokenExpiredException ex) {
-            throw new JWTVerificationException(TOKEN_EXPIRED_MESSAGE);
-        } catch (InvalidClaimException ex) {
-            throw new JWTVerificationException(TOKEN_ISSUER_INVALID_MESSAGE);
+            decodedJWT = JWT.decode(token);
         } catch (JWTDecodeException ex) {
             throw new JWTVerificationException(TOKEN_MALFORMED_MESSAGE);
-        } catch (IllegalArgumentException ex) {
-            throw new JWTVerificationException(INVALID_KEY_OR_TOKEN_MESSAGE);
+        }
+
+        if (decodedJWT.getExpiresAt() != null &&
+                decodedJWT.getExpiresAt().before(new Date())) {
+            throw new JWTVerificationException(TOKEN_EXPIRED_MESSAGE);
+        }
+
+        Algorithm algorithm = Algorithm.HMAC256(privateKey);
+        JWTVerifier verifier = JWT.require(algorithm)
+               .withIssuer(userGenerator)
+               .build();
+        try {
+            return verifier.verify(token);
+        } catch (JWTVerificationException ex) {
+            throw new JWTVerificationException(TOKEN_INVALID_MESSAGE);
         }
     }
 

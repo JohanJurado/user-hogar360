@@ -28,12 +28,9 @@ public class ExceptionConstants {
     public static final String PASSWORD_CANNOT_BE_EMPTY = "The field 'password' cannot be empty or blank";
 
     // token validation
-    public static final String TOKEN_ALGORITHM_INVALID_MESSAGE = "Token algorithm is invalid";
-    public static final String TOKEN_SIGNATURE_INVALID_MESSAGE = "Token signature is invalid";
     public static final String TOKEN_EXPIRED_MESSAGE = "Token has expired";
-    public static final String TOKEN_ISSUER_INVALID_MESSAGE = "Token issuer is invalid";
     public static final String TOKEN_MALFORMED_MESSAGE = "Token is malformed";
-    public static final String INVALID_KEY_OR_TOKEN_MESSAGE = "Invalid key or token";
+    public static final String TOKEN_INVALID_MESSAGE = "Token invalid";
     public static final String TOKEN_VALIDATION_FAILED_MESSAGE = "Token validation failed";
 
     // validate credentials

@@ -12,7 +12,6 @@ public class InfrastructureConstants {
     public static final String HAS_ROLE_ADMIN = "hasRole('ADMIN')";
     public static final String HAS_ROLE_SELLER = "hasRole('SELLER')";
     public static final String ROLE_PREFIX = "ROLE_";
-    public static final String REMOVE_ROLE_PREFIX = "";
 
     // claim keys
     public static final String EMAIL_CLAIM_KEY = "email";

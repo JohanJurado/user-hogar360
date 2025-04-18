@@ -2,8 +2,6 @@ package com.pragma.hogar360_microservice_user.infraestructure.configurations.sec
 
 import com.auth0.jwt.exceptions.*;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.pragma.hogar360_microservice_user.domain.exceptions.UserNotFoundException;
-import com.pragma.hogar360_microservice_user.infraestructure.repositories.mysql.IUserRepository;
 import com.pragma.hogar360_microservice_user.infraestructure.utils.jwt.JwtUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -18,6 +16,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -32,7 +31,7 @@ import static com.pragma.hogar360_microservice_user.infraestructure.utils.consta
 public class JwtTokenValidator extends OncePerRequestFilter {
 
     private final JwtUtils jwtUtils;
-    private final IUserRepository userRepository;
+    private final UserDetailsService userDetailsService;
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
@@ -70,8 +69,7 @@ public class JwtTokenValidator extends OncePerRequestFilter {
 
     private String extractEmail(DecodedJWT decodedJWT){
         String email = jwtUtils.extractUsername(decodedJWT);
-        userRepository.findByEmail(email).orElseThrow(UserNotFoundException::new);
-        return email;
+        return userDetailsService.loadUserByUsername(email).getUsername();
     }
 
     private Collection<? extends GrantedAuthority> extractAuthorities(DecodedJWT decodedJWT){
