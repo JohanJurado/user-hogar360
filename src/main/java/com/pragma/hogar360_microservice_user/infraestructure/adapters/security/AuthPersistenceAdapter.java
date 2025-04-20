@@ -1,4 +1,4 @@
-package com.pragma.hogar360_microservice_user.infraestructure.adapters.persistence.security;
+package com.pragma.hogar360_microservice_user.infraestructure.adapters.security;
 
 import com.pragma.hogar360_microservice_user.domain.model.UserModel;
 import com.pragma.hogar360_microservice_user.domain.ports.out.IAuthPersistencePort;

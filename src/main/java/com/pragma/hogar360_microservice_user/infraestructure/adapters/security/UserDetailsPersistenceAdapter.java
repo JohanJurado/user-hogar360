@@ -1,4 +1,4 @@
-package com.pragma.hogar360_microservice_user.infraestructure.adapters.persistence.security;
+package com.pragma.hogar360_microservice_user.infraestructure.adapters.security;
 
 import com.pragma.hogar360_microservice_user.domain.exceptions.UserNotFoundException;
 import com.pragma.hogar360_microservice_user.infraestructure.repositories.mysql.IUserRepository;

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import static com.pragma.hogar360_microservice_user.infraestructure.utils.constants.InfrastructureConstants.HAS_ROLE_ADMIN;
-import static com.pragma.hogar360_microservice_user.infraestructure.utils.constants.InfrastructureConstants.HAS_ROLE_SELLER;
 
 @RequiredArgsConstructor
 @RestController

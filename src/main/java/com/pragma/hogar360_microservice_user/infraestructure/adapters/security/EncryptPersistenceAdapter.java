@@ -1,4 +1,4 @@
-package com.pragma.hogar360_microservice_user.infraestructure.adapters.persistence.security;
+package com.pragma.hogar360_microservice_user.infraestructure.adapters.security;
 
 import com.pragma.hogar360_microservice_user.domain.ports.out.IEncryptPersistencePort;
 import jakarta.transaction.Transactional;

@@ -10,11 +10,9 @@ public class InfrastructureConstants {
 
     // role constants
     public static final String HAS_ROLE_ADMIN = "hasRole('ADMIN')";
-    public static final String HAS_ROLE_SELLER = "hasRole('SELLER')";
     public static final String ROLE_PREFIX = "ROLE_";
 
     // claim keys
-    public static final String EMAIL_CLAIM_KEY = "email";
     public static final String AUTHORITIES_CLAIM_KEY = "authorities";
 
     // token constants
