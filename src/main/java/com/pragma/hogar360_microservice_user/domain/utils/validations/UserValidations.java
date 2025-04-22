@@ -3,9 +3,15 @@ package com.pragma.hogar360_microservice_user.domain.utils.validations;
 import com.pragma.hogar360_microservice_user.domain.exceptions.*;
 import com.pragma.hogar360_microservice_user.domain.model.UserModel;
 
+import static com.pragma.hogar360_microservice_user.domain.utils.constants.DomainConstants.UTILITY_CLASS_MESSAGE;
 import static com.pragma.hogar360_microservice_user.domain.utils.validations.GlobalValidations.*;
 
 public class UserValidations {
+
+    private UserValidations() {
+        throw new IllegalStateException(UTILITY_CLASS_MESSAGE);
+    }
+
 
     public static void toUpperStringUserAttributes(UserModel userModel) {
         userModel.setName(normalizeToUpper(userModel.getName()));

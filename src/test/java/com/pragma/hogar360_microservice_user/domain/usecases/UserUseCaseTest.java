@@ -9,6 +9,7 @@ import com.pragma.hogar360_microservice_user.domain.ports.out.IUserPersistencePo
 import com.pragma.hogar360_microservice_user.domain.utils.constants.DomainConstants;
 import com.pragma.hogar360_microservice_user.domain.utils.constants.ValidationConstants;
 import com.pragma.hogar360_microservice_user.domain.utils.validations.GlobalValidations;
+import com.pragma.hogar360_microservice_user.domain.utils.validations.UserValidations;
 import com.pragma.hogar360_microservice_user.utils.constants.TestConstants;
 import com.pragma.hogar360_microservice_user.utils.testdata.TestDataRole;
 import com.pragma.hogar360_microservice_user.utils.testdata.TestDataUser;
@@ -296,6 +297,22 @@ class UserUseCaseTest {
     void testValidationConstructorThrowsIllegalStateException() {
         Exception exception = assertThrows(InvocationTargetException.class, () -> {
             Constructor<GlobalValidations> constructor = GlobalValidations.class.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            constructor.newInstance();
+        });
+
+        Throwable cause = exception.getCause();
+        assertNotNull(cause);
+        assertEquals(IllegalStateException.class, cause.getClass());
+
+        assertEquals(DomainConstants.UTILITY_CLASS_MESSAGE, cause.getMessage());
+    }
+
+    @Test
+    @DisplayName("Test UserValidations Constructor ThrowsIllegalStateException")
+    void testUserValidationsConstructorThrowsIllegalStateException() {
+        Exception exception = assertThrows(InvocationTargetException.class, () -> {
+            Constructor<UserValidations> constructor = UserValidations.class.getDeclaredConstructor();
             constructor.setAccessible(true);
             constructor.newInstance();
         });
